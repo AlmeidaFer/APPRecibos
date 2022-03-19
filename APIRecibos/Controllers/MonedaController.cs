@@ -7,23 +7,23 @@ namespace APIRecibos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class MonedaController : ControllerBase
     {
         private readonly RecibosDbContext _context;
 
-        public UserController(RecibosDbContext context)
+        public MonedaController(RecibosDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetMonedas()
         {
             try
             {
-                var users = await _context.Users.ToListAsync();
+                var Monedas = await _context.Monedas.ToListAsync();
 
-                return Ok(users);
+                return Ok(Monedas);
             }
             catch (Exception ex)
             {
@@ -33,13 +33,13 @@ namespace APIRecibos.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> GetMoneda(int id)
         {
             try
             {
-                var user = await _context.Users.FindAsync(id);
+                var Moneda = await _context.Monedas.FindAsync(id);
 
-                return Ok(user);
+                return Ok(Moneda);
             }
             catch (Exception ex)
             {
@@ -49,16 +49,16 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertUser([FromBody] IEUser user)
+        public async Task<IActionResult> InsertMoneda([FromBody] IEMoneda Moneda)
         {
             try
             {
-                if (user == null || !ModelState.IsValid)
+                if (Moneda == null || !ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
 
-                await _context.AddAsync(user);
+                await _context.AddAsync(Moneda);
                 await _context.SaveChangesAsync();
 
                 return Ok();
@@ -72,22 +72,22 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser([FromBody] IEUser user)
+        public async Task<IActionResult> UpdateMoneda([FromBody] IEMoneda Moneda)
         {
             try
             {
-                if (user == null || !ModelState.IsValid)
+                if (Moneda == null || !ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
 
-                var eBd = await _context.Users.FindAsync(user.id);
+                var eBd = await _context.Monedas.FindAsync(Moneda.id);
 
                 if (eBd != null)
                 {
-                    eBd.pass = user.pass;
-                    eBd.email = user.email;
-                    eBd.name = user.name;
+                    eBd.clave = Moneda.clave;
+                    eBd.moneda = Moneda.moneda;
+   
                     await _context.SaveChangesAsync();
                     return Ok();
                 }
@@ -108,14 +108,14 @@ namespace APIRecibos.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteMoneda(int id)
         {
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(x => x.id == id);
-                if (user!=null)
+                var Moneda = await _context.Monedas.FirstOrDefaultAsync(x => x.id == id);
+                if (Moneda!=null)
                 {
-                    _context.Users.Remove(user);
+                    _context.Monedas.Remove(Moneda);
                     await _context.SaveChangesAsync();
                     return Ok();
                 }

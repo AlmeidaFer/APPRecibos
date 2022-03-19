@@ -7,23 +7,23 @@ namespace APIRecibos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class ProveedorController : ControllerBase
     {
         private readonly RecibosDbContext _context;
 
-        public UserController(RecibosDbContext context)
+        public ProveedorController(RecibosDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetProveedors()
         {
             try
             {
-                var users = await _context.Users.ToListAsync();
+                var Proveedors = await _context.Proveedores.ToListAsync();
 
-                return Ok(users);
+                return Ok(Proveedors);
             }
             catch (Exception ex)
             {
@@ -33,13 +33,13 @@ namespace APIRecibos.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> GetProveedor(int id)
         {
             try
             {
-                var user = await _context.Users.FindAsync(id);
+                var Proveedor = await _context.Proveedores.FindAsync(id);
 
-                return Ok(user);
+                return Ok(Proveedor);
             }
             catch (Exception ex)
             {
@@ -49,16 +49,16 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertUser([FromBody] IEUser user)
+        public async Task<IActionResult> InsertProveedor([FromBody] IEProveedor Proveedor)
         {
             try
             {
-                if (user == null || !ModelState.IsValid)
+                if (Proveedor == null || !ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
 
-                await _context.AddAsync(user);
+                await _context.AddAsync(Proveedor);
                 await _context.SaveChangesAsync();
 
                 return Ok();
@@ -72,22 +72,21 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser([FromBody] IEUser user)
+        public async Task<IActionResult> UpdateProveedor([FromBody] IEProveedor Proveedor)
         {
             try
             {
-                if (user == null || !ModelState.IsValid)
+                if (Proveedor == null || !ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
 
-                var eBd = await _context.Users.FindAsync(user.id);
+                var eBd = await _context.Proveedores.FindAsync(Proveedor.id);
 
                 if (eBd != null)
                 {
-                    eBd.pass = user.pass;
-                    eBd.email = user.email;
-                    eBd.name = user.name;
+                    eBd.proveedor = Proveedor.proveedor;
+
                     await _context.SaveChangesAsync();
                     return Ok();
                 }
@@ -108,14 +107,14 @@ namespace APIRecibos.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteProveedor(int id)
         {
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(x => x.id == id);
-                if (user!=null)
+                var Proveedor = await _context.Proveedores.FirstOrDefaultAsync(x => x.id == id);
+                if (Proveedor!=null)
                 {
-                    _context.Users.Remove(user);
+                    _context.Proveedores.Remove(Proveedor);
                     await _context.SaveChangesAsync();
                     return Ok();
                 }
