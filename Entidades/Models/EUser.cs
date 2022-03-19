@@ -14,7 +14,7 @@ namespace Entidades.Models
         [EmailAddress(ErrorMessage = "Verifique su correo")]
         public string email { get; set; }
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Ingrese una contrasñe")]
+        [Required(ErrorMessage = "Ingrese una contraseña")]
         public string pass { get; set; }
         public string? name { get; set; }
 

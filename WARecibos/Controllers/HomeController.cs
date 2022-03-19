@@ -31,7 +31,7 @@ namespace WARecibos.Controllers
             }
         }
 
-        public async Task<IActionResult> Index(int id = 1)
+        public async Task<IActionResult> Index(int id = 0)
         {
             if (id == 0)
             {

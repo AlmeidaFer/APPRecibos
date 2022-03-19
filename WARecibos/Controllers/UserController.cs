@@ -33,6 +33,7 @@ namespace WARecibos.Controllers
                
             }
 
+            TempData["msj"] = "Verifique sus credenciales";
             return View("LogIn",user);
         }
     
