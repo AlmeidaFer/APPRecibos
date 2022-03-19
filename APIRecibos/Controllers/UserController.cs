@@ -1,6 +1,7 @@
 ﻿using APIRecibos.DbAccess;
 using Entidades.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace APIRecibos.Controllers
 {
@@ -15,24 +16,124 @@ namespace APIRecibos.Controllers
             _context = context;
         }
 
-        [HttpGet(Name = "GetUsers")]
-        public void GetUser()
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
         {
-            var list = new List<EUser>();
-          
-                list = (from u in _context.Users
-                        select new EUser
-                        {
-                            id = u.id,
-                            email = u.email,
-                            pass = u.pass,
-                            name = u.name
-                        }).ToList();
+            try
+            {
+                var users = await _context.Users.ToListAsync();
 
-                
-            
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
-            var fff = list;
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            try
+            {
+                var user = await _context.Users.FindAsync(id);
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }          
+             
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertUser([FromBody] EUser user)
+        {
+            try
+            {
+                if (user == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                await _context.AddAsync(user);
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
+
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser([FromBody] EUser user)
+        {
+            try
+            {
+                if (user == null || !ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var eBd = await _context.Users.FindAsync(user.id);
+
+                if (eBd != null)
+                {
+                    eBd.pass = user.pass;
+                    eBd.email = user.email;
+                    eBd.name = user.name;
+                    await _context.SaveChangesAsync();
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+
+              
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(x => x.id == id);
+                if (user!=null)
+                {
+                    _context.Users.Remove(user);
+                    await _context.SaveChangesAsync();
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+               
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+        }
+
+
     }
 }
