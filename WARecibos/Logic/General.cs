@@ -34,5 +34,36 @@ namespace WARecibos.Logic
 
         }
 
+        public async Task<MdlItemRecibo> getNameMonedaProveedor(MdlItemRecibo model, string ApiUrlP, string ApiUrlM)
+        {
+            var proveedor = new EProveedor();
+            var moneda = new EMoneda();
+
+            if (model.proveedorId != 0 || model.proveedorId !=null)
+            {
+                using (var httpClt = new HttpClient())
+                {
+                    var result = await httpClt.GetStringAsync(ApiUrlP + "/" + model.proveedorId);
+
+                    proveedor = JsonConvert.DeserializeObject<EProveedor>(result);
+                }
+                model.proveedor = proveedor.proveedor;
+            }
+
+            if (model.monedaId != null || model.monedaId !=0)
+            {
+                using (var httpClt = new HttpClient())
+                {
+                    var result = await httpClt.GetStringAsync(ApiUrlM + "/" + model.monedaId);
+
+                    moneda = JsonConvert.DeserializeObject<EMoneda>(result);
+                }
+                model.moneda = moneda.clave;
+            }
+
+            return model;
+
+        }
+
     }
 }

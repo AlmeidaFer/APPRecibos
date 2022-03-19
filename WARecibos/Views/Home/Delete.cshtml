@@ -1,61 +1,77 @@
-﻿@model Entidades.Data.MdlDeleteRecibos
+﻿@model Entidades.Data.MdlItemRecibo
 @{
     ViewData["Title"] = "Eliminar Recibo";
 }
 
 <div class="container">
+
     <div class="row">
-        <div class="col-sm-6">
-            <h2>Eliminar Recibo</h2>
+        <div class"col-12">
+            <h3>¿Desea eliminar el recibo con los datos siguientes?</h3>
         </div>
-        <div class="col-sm-6">
-        </div>
-    </div>
-    <div class="row">
-        <h2>¿Desea eliminar el recibo con los datos siguientes?</h2>
+
 
     </div>
     <div class="row">
 
-        <div class="offset-2 col-2">
-            <p>@Html.DisplayNameFor(x=>x.consecutivo)</p>
-            <p>@Model.consecutivo</p>
+        <div class="offset-1 col-5">
+            <p>RC-@Model.consecutivo.ToString().PadLeft(5, '0')</p>
         </div>
-        <div class="offset-2 col-2">
-            <p>@Html.DisplayNameFor(x=>x.proveedorId)</p>
+        <div class="col-2">
+            <p>@Html.DisplayNameFor(x=>x.fecha) :</p>
+
+        </div>
+        <div class="col-2 text-left">
+            <p>@Convert.ToDateTime(Model.fecha).ToShortDateString()</p>
+        </div>
+
+    </div><br />
+    <div class="row">
+        <div class="offset-1 col-2">
+
+            <p>@Html.DisplayNameFor(x=>x.proveedorId) :</p>
+        </div>
+
+        <div class=" col-6 text-left">
             <p>@Model.proveedor</p>
         </div>
     </div>
+    <div class="row">
+        <div class="offset-1 col-2 ">
+            <p>@Html.DisplayNameFor(x=>x.monto) :</p>
+
+        </div>
+
+        <div class="col-6 text-left">
+            <p>@Model.monto @Model.moneda</p>
+        </div>
+
+
+
+    </div>
 
     <div class="row">
-        <div class="offset-2 col-2">
-            <p>@Html.DisplayNameFor(x=>x.monto)</p>
-            <p>@Model.monto</p>
-        </div>
-        <div class="offset-2 col-2">
-            <p>@Html.DisplayNameFor(x=>x.monedaId)</p>
-            <p>@Model.moneda</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-2 col-2">
-            <p>@Html.DisplayNameFor(x=>x.fecha)</p>
-            <p>@Model.fecha</p>
-        </div>
-        <div class="offset-2 col-2">
+
+
+        <div class="offset-1 col-2">
+
             <p>@Html.DisplayNameFor(x=>x.comentario)</p>
+        </div>
+
+        <div class=" col-6">
             <p>@Model.comentario</p>
         </div>
 
 
     </div>
 
+    <br />
     <div class="row">
         <div class="offset-2 col-2">
-            <a asp-controller="Home" asp-action="DeleteSi" asp-route-id="@Model.id" class="btn btn-success">Si</a>
+            <a asp-controller="Home" asp-action="DeleteSi" asp-route-id="@Model.id" class="fa-solid fa-check btn btn-success"></a>
         </div>
         <div class="offset-2 col-2">
-            <a asp-controller="Home" asp-action="Index" class="btn btn-danger">No</a>
+            <a asp-controller="Home" asp-action="Index" class="fa-solid fa-xmark btn btn-danger"></a>
         </div>
 
     </div>

@@ -1,4 +1,4 @@
-﻿@model List<Entidades.Models.ERecibos>
+﻿@model List<Entidades.Data.MdlItemRecibo>
 @{
     ViewData["Title"] = "Recibos";
 }
@@ -9,7 +9,10 @@
             <h2>Recibos</h2>
         </div>
         <div class="col-sm-6">
-            <a class="btn btn-success" asp-action="Create" asp-controller="Home">Nuevo</a>
+     
+
+
+            <a class="btn btn-success fa-regular fa-square-plus" asp-action="Create" asp-controller="Home"></a>
         </div>
     </div>
 
@@ -20,6 +23,9 @@
                 <tr>
                     <td>
                         <p>Consecutivo</p>
+                    </td>
+                     <td>
+                        <p>Proveedor</p>
                     </td>
                     <td>
                         <p>Monto</p>
@@ -34,14 +40,17 @@
                 {
                     <tr>
                         <td>
-                            @r.consecutivo
+                           RC-@r.consecutivo.ToString().PadLeft(5, '0')
                         </td>
                         <td>
-                            @r.monto
+                            @r.proveedor
                         </td>
                         <td>
-                            <a asp-controller="Home" asp-action="Create" asp-route-id="@r.id" class="btn btn-warning">Editar</a>
-                            <a asp-controller="Home" asp-action="Delete" asp-route-id="@r.id" class="btn btn-danger">Eliminar</a>
+                            @r.monto @r.moneda
+                        </td>
+                        <td>
+                            <a asp-controller="Home" asp-action="Create" asp-route-id="@r.id" class="fa-regular fa-pen-to-square btn btn-warning"></a>
+                            <a asp-controller="Home" asp-action="Delete" asp-route-id="@r.id" class="fa-regular fa-trash-can btn btn-danger "></a>
                         </td>
 
                     </tr>

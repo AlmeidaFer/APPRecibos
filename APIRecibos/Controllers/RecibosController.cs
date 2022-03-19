@@ -60,7 +60,7 @@ namespace APIRecibos.Controllers
 
                 if (Recibos.id==0 || Recibos.id == null)
                 {
-                    var cons = await _context.Recibos.LastOrDefaultAsync();
+                    var cons = await _context.Recibos.OrderByDescending(x=>x.consecutivo).FirstOrDefaultAsync();
 
                     if (cons!=null)
                     {

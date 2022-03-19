@@ -13,7 +13,7 @@ namespace WARecibos.Controllers
 {
     public class HomeController : Controller
     {
-       
+
         private readonly string ApiUrl = "https://localhost:7150/Recibos";
         private readonly string ApiUrlM = "https://localhost:7150/Moneda";
         private readonly string ApiUrlP = "https://localhost:7150/Proveedor";
@@ -31,19 +31,32 @@ namespace WARecibos.Controllers
             }
         }
 
-        public async Task<IActionResult> Index(int id=0)
+        public async Task<IActionResult> Index(int id = 1)
         {
-            if (id==0)
+            if (id == 0)
             {
-                return RedirectToAction("LogIn","User");
+                return RedirectToAction("LogIn", "User");
             }
-            var list = new List<ERecibos>();
+            var list = new List<MdlItemRecibo>();
             using (var httpClt = new HttpClient())
             {
                 var result = await httpClt.GetStringAsync(ApiUrl);
 
-                list = JsonConvert.DeserializeObject<List<ERecibos>>(result);
+                list = JsonConvert.DeserializeObject<List<MdlItemRecibo>>(result);
             }
+
+            var data = Gen.getMonedasProveedores(new MdlRecibos(), ApiUrlP, ApiUrlM);
+            var model = data.Result;
+
+            foreach (var l in list)
+            {
+                var prov = model.proveedores.Where(x => x.id == l.proveedorId).FirstOrDefault();
+                l.proveedor = prov.proveedor;
+                var mon = model.monedas.Where(x => x.id == l.monedaId).FirstOrDefault();
+                l.moneda = mon.clave;
+            }
+
+
 
             return View(list);
         }
@@ -62,7 +75,7 @@ namespace WARecibos.Controllers
                 }
             }
 
-            var dataT = Gen.getMonedasProveedores(data,ApiUrlP,ApiUrlM);
+            var dataT = Gen.getMonedasProveedores(data, ApiUrlP, ApiUrlM);
 
             data = dataT.Result;
 
@@ -77,7 +90,7 @@ namespace WARecibos.Controllers
                 var result = new HttpResponseMessage();
                 using (var httpClt = new HttpClient())
                 {
-                    if (model.id == 0)
+                    if (model.id == 0 || model.id == null)
                     {
                         result = await httpClt.PostAsJsonAsync(ApiUrl, model);
                     }
@@ -112,40 +125,18 @@ namespace WARecibos.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var model = new MdlDeleteRecibos();
+            var model = new MdlItemRecibo();
 
 
             using (var httpClt = new HttpClient())
             {
                 var result = await httpClt.GetStringAsync(ApiUrl + "/" + id);
 
-                model = JsonConvert.DeserializeObject<MdlDeleteRecibos>(result);
+                model = JsonConvert.DeserializeObject<MdlItemRecibo>(result);
             }
 
-            var proveedor = new EProveedor();        
-            var moneda = new EMoneda();
-
-            if (proveedor != null)
-            {
-                using (var httpClt = new HttpClient())
-                {
-                    var result = await httpClt.GetStringAsync(ApiUrlP + "/" + model.proveedorId);
-
-                    proveedor = JsonConvert.DeserializeObject<EProveedor>(result);
-                }
-                model.proveedor = proveedor.proveedor;
-            }
-
-            if (moneda != null)
-            {
-                using (var httpClt = new HttpClient())
-                {
-                    var result = await httpClt.GetStringAsync(ApiUrlM + "/" + model.monedaId);
-
-                    moneda = JsonConvert.DeserializeObject<EMoneda>(result);
-                }
-                model.moneda = moneda.moneda;
-            }
+            var data = Gen.getNameMonedaProveedor(model, ApiUrlP, ApiUrlM);
+            model = data.Result;
 
             return View(model);
         }

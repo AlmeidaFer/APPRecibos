@@ -21,7 +21,7 @@ namespace Entidades.Data
         }
     }
 
-    public partial class MdlDeleteRecibos: ERecibos
+    public partial class MdlItemRecibo: ERecibos
     {
         public string proveedor { get; set; }
         public string moneda { get; set; }
