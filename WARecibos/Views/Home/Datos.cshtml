@@ -1,0 +1,55 @@
+﻿@model Entidades.Data.MdlRecibos
+@{
+    ViewData["Title"] = "Nuevo Recibo";
+}
+
+<div class="container">
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Nuevo Recibo</h2>
+    </div>
+    <div class="col-sm-6">
+            @*<a class="btn btn-success" asp-action="Create" asp-controller="Home">Nuevo</a>*@
+    </div>
+</div>
+<form method="post" asp-action="IURecibo">
+
+    <div class="form-group">
+            @Html.DisplayNameFor(m=>m.proveedorId)
+        <select id="ddlProveedor" class="form-control" asp-for="proveedorId" asp-items="@(new SelectList(Model.proveedores, "Value", "Text"))">
+            <option value="0">--Seleccion Uno--</option>
+        </select><br />
+          <span asp-validation-for="proveedorId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+            @Html.DisplayNameFor(m=>m.monto)
+        <input type="text" asp-for="@Model.monto" class="form-control" /><br>
+         <span asp-validation-for="monto" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+            @Html.DisplayNameFor(m=>m.monedaId)
+        <select id="ddlProveedor" class="form-control" asp-for="monedaId" asp-items="@(new SelectList(Model.monedas, "Value", "Text"))">
+            <option value="0">--Seleccion Una--</option>
+        </select><br>
+         <span asp-validation-for="monedaId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+            @Html.DisplayNameFor(m=>m.fecha)
+        <input asp-for="fecha" type="date" asp-format="{0:yyyy-MM-dd}" class="form-control" /><br>
+         <span asp-validation-for="fecha" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+            @Html.DisplayNameFor(m=>m.comentario)
+        <input asp-for="comentario" class="form-control" /><br>
+         <span asp-validation-for="comentario" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="id"/>
+    <input type="submit" value="Guardar" class="btn btn-primary" />
+</form>
+</div>
+
+
