@@ -52,7 +52,6 @@ C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Mic
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Entidades.dll
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Entidades.pdb
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.csproj.AssemblyReference.cache
-C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.AssemblyInfoInputs.cache
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.AssemblyInfo.cs
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.csproj.CoreCompileInputs.cache
@@ -70,3 +69,18 @@ C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\ref
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.pdb
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.genruntimeconfig.cache
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\ref\WARecibos.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\System.Runtime.InteropServices.WindowsRuntime.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.Diagnostics.Eventing.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.Foundation.Logging.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.Foundation.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.Composition.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.Dispatching.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.FluentTheme.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.FluentTheme.v1.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.FluentTheme.v2.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.Toolkit.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.UI.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.Xaml.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\bin\Debug\net6.0\Uno.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\Debug\net6.0\WARecibos.d-bfalse.GeneratedMSBuildEditorConfig.editorconfig

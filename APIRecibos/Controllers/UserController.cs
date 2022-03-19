@@ -48,8 +48,25 @@ namespace APIRecibos.Controllers
              
         }
 
+
+        [HttpGet("Logear/{email}/{pass}")]
+        public async Task<IActionResult> GetUser(string email,string pass)
+        {
+            try
+            {
+                var user = await _context.Users.Where(x=>x.email == email && x.pass==pass).FirstOrDefaultAsync();
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpPost]
-        public async Task<IActionResult> InsertUser([FromBody] IEUser user)
+        public async Task<IActionResult> InsertUser([FromBody] EUser user)
         {
             try
             {
@@ -72,7 +89,7 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser([FromBody] IEUser user)
+        public async Task<IActionResult> UpdateUser([FromBody] EUser user)
         {
             try
             {

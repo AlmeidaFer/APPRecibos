@@ -8,15 +8,22 @@ using System.Web.Mvc;
 
 namespace Entidades.Data
 {
+    
     public class MdlRecibos : ERecibos
     {
-        public List<SelectList> proveedores { get; set; }
-        public List<SelectList> monedas { get; set; }
+        public List<EProveedor> proveedores { get; set; }
+        public List<EMoneda> monedas { get; set; }
 
         public MdlRecibos()
         {
-            proveedores = new List<SelectList>();
-            monedas = new List<SelectList>();
+            proveedores = new List<EProveedor>();
+            monedas = new List<EMoneda>();
         }
+    }
+
+    public partial class MdlDeleteRecibos: ERecibos
+    {
+        public string proveedor { get; set; }
+        public string moneda { get; set; }
     }
 }

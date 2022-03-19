@@ -12,5 +12,6 @@ namespace APIRecibos.DbAccess
         public DbSet<EUser> Users { get; set; }
         public DbSet<EProveedor> Proveedores { get; set; }
         public DbSet<EMoneda> Monedas { get; set; }
+        public DbSet<ERecibos> Recibos { get; set; }
     }
 }

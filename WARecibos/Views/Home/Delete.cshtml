@@ -1,0 +1,67 @@
+﻿@model Entidades.Data.MdlDeleteRecibos
+@{
+    ViewData["Title"] = "Eliminar Recibo";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Eliminar Recibo</h2>
+        </div>
+        <div class="col-sm-6">
+        </div>
+    </div>
+    <div class="row">
+        <h2>¿Desea eliminar el recibo con los datos siguientes?</h2>
+
+    </div>
+    <div class="row">
+
+        <div class="offset-2 col-2">
+            <p>@Html.DisplayNameFor(x=>x.consecutivo)</p>
+            <p>@Model.consecutivo</p>
+        </div>
+        <div class="offset-2 col-2">
+            <p>@Html.DisplayNameFor(x=>x.proveedorId)</p>
+            <p>@Model.proveedor</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-2 col-2">
+            <p>@Html.DisplayNameFor(x=>x.monto)</p>
+            <p>@Model.monto</p>
+        </div>
+        <div class="offset-2 col-2">
+            <p>@Html.DisplayNameFor(x=>x.monedaId)</p>
+            <p>@Model.moneda</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-2 col-2">
+            <p>@Html.DisplayNameFor(x=>x.fecha)</p>
+            <p>@Model.fecha</p>
+        </div>
+        <div class="offset-2 col-2">
+            <p>@Html.DisplayNameFor(x=>x.comentario)</p>
+            <p>@Model.comentario</p>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="offset-2 col-2">
+            <a asp-controller="Home" asp-action="DeleteSi" asp-route-id="@Model.id" class="btn btn-success">Si</a>
+        </div>
+        <div class="offset-2 col-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-danger">No</a>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+

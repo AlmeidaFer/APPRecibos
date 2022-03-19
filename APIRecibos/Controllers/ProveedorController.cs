@@ -49,7 +49,7 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertProveedor([FromBody] IEProveedor Proveedor)
+        public async Task<IActionResult> InsertProveedor([FromBody] EProveedor Proveedor)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProveedor([FromBody] IEProveedor Proveedor)
+        public async Task<IActionResult> UpdateProveedor([FromBody] EProveedor Proveedor)
         {
             try
             {

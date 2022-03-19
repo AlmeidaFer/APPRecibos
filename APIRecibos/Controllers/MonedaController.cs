@@ -49,7 +49,7 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertMoneda([FromBody] IEMoneda Moneda)
+        public async Task<IActionResult> InsertMoneda([FromBody] EMoneda Moneda)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace APIRecibos.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateMoneda([FromBody] IEMoneda Moneda)
+        public async Task<IActionResult> UpdateMoneda([FromBody] EMoneda Moneda)
         {
             try
             {
