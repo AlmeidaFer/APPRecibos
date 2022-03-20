@@ -32,13 +32,21 @@ comentario varchar(max)
 
 insert into users values ('admin@hotmail.com','1234','admin')
 insert into proveedores values ('proveedor 1')
+insert into proveedores values ('proveedor 2')
+insert into proveedores values ('proveedor 3')
 insert into monedas values ('Peso Mexicano','MXN')
+insert into monedas values ('Dolar','USA')
+insert into monedas values ('Pero Argentino','ARS')
 
 select * from users
 select * from proveedores
 select * from monedas
+select * from recibos
 
-insert into recibos values (1,1,500,1,getdate(),'Gasolina')
-
--- delete recibos
--- drop table recibos
+-- create or alter procedure spListRecibos
+-- as BEGIN
+--     SELECT r.*,p.proveedor,m.clave as moneda 
+--     FROM recibos r,proveedores p , monedas m
+--     where r.proveedorId=p.id AND
+--     r.monedaId=m.id
+-- end

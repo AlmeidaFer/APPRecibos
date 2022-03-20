@@ -1,4 +1,5 @@
-﻿using Entidades.Models;
+﻿using Entidades.Data;
+using Entidades.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIRecibos.DbAccess

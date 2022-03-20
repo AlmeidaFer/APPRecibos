@@ -134,3 +134,5 @@ C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\APIRecibos\obj\Debug\net6.0\re
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\APIRecibos\obj\Debug\net6.0\APIRecibos.pdb
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\APIRecibos\obj\Debug\net6.0\APIRecibos.genruntimeconfig.cache
 C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\APIRecibos\obj\Debug\net6.0\ref\APIRecibos.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\APIRecibos\bin\Debug\net6.0\Humanizer.dll
+C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\APIRecibos\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll

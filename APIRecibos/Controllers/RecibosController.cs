@@ -17,7 +17,7 @@ namespace APIRecibos.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetReciboss()
+        public async Task<IActionResult> GetRecibos()
         {
             try
             {
@@ -31,6 +31,7 @@ namespace APIRecibos.Controllers
             }
 
         }
+
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetRecibos(int id)
