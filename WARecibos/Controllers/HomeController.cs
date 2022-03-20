@@ -13,7 +13,7 @@ namespace WARecibos.Controllers
 {
     public class HomeController : Controller
     {
-
+        #region Propiedades
         private readonly string ApiUrl = "https://localhost:7150/Recibos";
         private readonly string ApiUrlM = "https://localhost:7150/Moneda";
         private readonly string ApiUrlP = "https://localhost:7150/Proveedor";
@@ -30,7 +30,16 @@ namespace WARecibos.Controllers
                 return _Gen;
             }
         }
+        #endregion
 
+        #region Metodos
+
+        #region Principal
+        /// <summary>
+        /// Accion para ir a la pagina principal que contiene el listado de todos los recibos
+        /// </summary>
+        /// <param name="id">id utilizado para simular identificacion del usuario</param>
+        /// <returns></returns>
         public async Task<IActionResult> Index(int id = 0)
         {
             if (id == 0)
@@ -60,7 +69,14 @@ namespace WARecibos.Controllers
 
             return View(list);
         }
+        #endregion
 
+        #region Create and Edit
+        /// <summary>
+        /// Accion para mandar a la ventana de creacion de recibo o de edicion segun corresponda
+        /// </summary>
+        /// <param name="id">id del recibo</param>
+        /// <returns></returns>
         public async Task<IActionResult> Create(int id = 0)
         {
             MdlRecibos data = new MdlRecibos();
@@ -82,6 +98,11 @@ namespace WARecibos.Controllers
             return View("Datos", data);
         }
 
+        /// <summary>
+        /// Accion para registrar o editar el recibo
+        /// </summary>
+        /// <param name="model">datos del recibo</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> IURecibo(MdlRecibos model)
         {
@@ -105,8 +126,9 @@ namespace WARecibos.Controllers
                         {
                             var cons = await result.Content.ReadAsStringAsync();
                         }
-
-                        return RedirectToAction("Index");
+                        //aqui optendriamos el usuario Id para poderlo devolver a la vista principal
+                        int userId = 1;
+                        return RedirectToAction("Index", new { id = userId });
                     }
 
 
@@ -121,8 +143,14 @@ namespace WARecibos.Controllers
 
             return View("Datos", model);
         }
+        #endregion
 
-
+        #region Delete
+        /// <summary>
+        /// Ventana de confirmacion para eliminacion de recibo
+        /// </summary>
+        /// <param name="id">id del recibo</param>
+        /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
             var model = new MdlItemRecibo();
@@ -141,6 +169,11 @@ namespace WARecibos.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Accion para confirmar eliminacion de recibo
+        /// </summary>
+        /// <param name="id">id del recibo a eliminar</param>
+        /// <returns></returns>
         public async Task<IActionResult> DeleteSi(int id)
         {
             var result = new HttpResponseMessage();
@@ -148,11 +181,16 @@ namespace WARecibos.Controllers
             {
 
                 result = await httpClt.DeleteAsync(ApiUrl + "/" + id);
-                return RedirectToAction("Index");
+                //aqui optendriamos el usuario Id para poderlo devolver a la vista principal
+                int userId = 1;
+                return RedirectToAction("Index", new { id = userId });
+            
 
             }
         }
+        #endregion
 
+        #endregion
     }
 }
 

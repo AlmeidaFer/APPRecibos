@@ -7,11 +7,24 @@ namespace WARecibos.Controllers
 {
     public class UserController : Controller
     {
+        #region Propiedades
         private readonly string ApiUrl = "https://localhost:7150/User";
+        #endregion
+        #region Metodos
+        /// <summary>
+        /// Accion que contiene la vista para logeo de usuario
+        /// </summary>
+        /// <returns></returns>
         public IActionResult LogIn()
         {
             return View();
         }
+
+        /// <summary>
+        /// Accion para validar si el usuario existe o no y asi poder saber si lo envia a la pagina principal o no
+        /// </summary>
+        /// <param name="user">informacion del usuario</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Iniciar(EUser user)
         {
@@ -36,6 +49,6 @@ namespace WARecibos.Controllers
             TempData["msj"] = "Verifique sus credenciales";
             return View("LogIn",user);
         }
-    
+        #endregion
     }
 }

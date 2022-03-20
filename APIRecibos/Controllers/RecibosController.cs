@@ -67,6 +67,10 @@ namespace APIRecibos.Controllers
                     {
                         Recibos.consecutivo = cons.consecutivo + 1;
                     }
+                    else
+                    {
+                        Recibos.consecutivo = 1;
+                    }
                    
                 }
                
