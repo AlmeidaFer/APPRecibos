@@ -65,5 +65,28 @@ namespace WARecibos.Logic
 
         }
 
+      public async Task<List<MdlItemRecibo>> getDataPrincipal(string ApiUrl,string ApiUrlP, string ApiUrlM)
+        {
+            var list = new List<MdlItemRecibo>();
+            using (var httpClt = new HttpClient())
+            {
+                var result = await httpClt.GetStringAsync(ApiUrl);
+
+                list = JsonConvert.DeserializeObject<List<MdlItemRecibo>>(result);
+            }
+
+            var data = getMonedasProveedores(new MdlRecibos(), ApiUrlP, ApiUrlM);
+            var model = data.Result;
+
+            foreach (var l in list)
+            {
+                var prov = model.proveedores.Where(x => x.id == l.proveedorId).FirstOrDefault();
+                l.proveedor = prov.proveedor;
+                var mon = model.monedas.Where(x => x.id == l.monedaId).FirstOrDefault();
+                l.moneda = mon.clave;
+            }
+            return list;
+        }
+
     }
 }
