@@ -1,13 +1,48 @@
 is_global = true
+build_property.TargetPlatformIdentifier = 
 build_property.TargetFramework = net6.0
+build_property.TargetFramework = net6.0
+build_property.ProjectTypeGuidsProperty = 
+build_property.MSBuildProjectFullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\WARecibos.csproj
+build_property.RootNamespace = WARecibos
+build_property.RootNamespace = WARecibos
+build_property.RootNamespace = WARecibos
+build_property.DefineConstantsProperty = TRACE,DEBUG,NET,NET6_0,NETCOREAPP
+build_property.Configuration = Debug
+build_property.IntermediateOutputPath = obj\Debug\net6.0\
+build_property.AndroidApplication = 
+build_property.OutputType = Exe
+build_property.MSBuildProjectName = WARecibos
+build_property.BuildingProject = false
+build_property.DesignTimeBuild = true
+build_property.UnoUISourceGeneratorDebuggerBreak = 
+build_property.IsHotReloadHost = 
+build_property.UseWPF = 
+build_property.IsUnoHead = 
+build_property.UnoRemoteControlPort = 
+build_property.UnoRemoteControlHost = 
+build_property.UnoRemoteControlProcessorsPath = 
+build_property.TSBindingsPath = 
+build_property.UseUnoXamlParser = 
+build_property.UnoSkipUserControlsInVisualTree = 
+build_property.ShouldWriteErrorOnInvalidXaml = 
+build_property.IsUiAutomationMappingEnabled = 
+build_property.ShouldAnnotateGeneratedXaml = 
+build_property.DefaultLanguage = 
+build_property.UnoPlatformTelemetryOptOut = 
+build_property.ExcludeXamlNamespacesProperty = win,not_mux
+build_property.IncludeXamlNamespacesProperty = xamarin,not_win,legacy
+build_property.XamlGeneratorAnalyzerSuppressionsProperty = nventive.Usage-NV0056,nventive.Usage-NV0058,nventive.Usage-NV1003,nventive.Usage-NV0085,nventive.Usage-NV2001,nventive.Usage-NV2003,nventive.Usage-NV2004,nventive.Usage-NV2005
+build_property.LegacyTypesProperty = 
+build_property.UnoXamlResourcesTrimming = 
+build_property.BaseIntermediateOutputPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\obj\
+build_property.AssemblyName = WARecibos
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = WARecibos
-build_property.RootNamespace = WARecibos
 build_property.ProjectDir = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
@@ -16,33 +51,73 @@ build_property.MSBuildProjectDirectory = C:\Users\almei\source\repos\AlmeidaFer\
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/Home/Datos.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\Home\Datos.cshtml
+build_metadata.AdditionalFiles.Identity = Views\Home\Datos.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/Home/Delete.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\Home\Delete.cshtml
+build_metadata.AdditionalFiles.Identity = Views\Home\Delete.cshtml
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\Home\Index.cshtml
+build_metadata.AdditionalFiles.Identity = Views\Home\Index.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\Shared\Error.cshtml
+build_metadata.AdditionalFiles.Identity = Views\Shared\Error.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\Shared\_ValidationScriptsPartial.cshtml
+build_metadata.AdditionalFiles.Identity = Views\Shared\_ValidationScriptsPartial.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/User/LogIn.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\User\LogIn.cshtml
+build_metadata.AdditionalFiles.Identity = Views\User\LogIn.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\_ViewImports.cshtml
+build_metadata.AdditionalFiles.Identity = Views\_ViewImports.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\_ViewStart.cshtml
+build_metadata.AdditionalFiles.Identity = Views\_ViewStart.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/almei/source/repos/AlmeidaFer/APPRecibos/WARecibos/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.SourceItemGroup = 
+build_metadata.AdditionalFiles.Link = 
+build_metadata.AdditionalFiles.FullPath = C:\Users\almei\source\repos\AlmeidaFer\APPRecibos\WARecibos\Views\Shared\_Layout.cshtml
+build_metadata.AdditionalFiles.Identity = Views\Shared\_Layout.cshtml
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lyktydkkh2

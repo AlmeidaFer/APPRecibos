@@ -16,7 +16,7 @@
 
     <div class="form-group">
             @Html.DisplayNameFor(m=>m.proveedorId)
-        <select id="ddlProveedor" class="form-control" asp-for="proveedorId" asp-items="@(new SelectList(Model.proveedores, "Value", "Text"))">
+        <select id="ddlProveedor" class="form-control" asp-for="proveedorId" asp-items="@(new SelectList(Model.proveedores, "id", "proveedor"))">
             <option value="0">--Seleccion Uno--</option>
         </select><br />
           <span asp-validation-for="proveedorId" class="text-danger"></span>
@@ -30,7 +30,7 @@
 
     <div class="form-group">
             @Html.DisplayNameFor(m=>m.monedaId)
-        <select id="ddlProveedor" class="form-control" asp-for="monedaId" asp-items="@(new SelectList(Model.monedas, "Value", "Text"))">
+        <select id="ddlProveedor" class="form-control" asp-for="monedaId" asp-items="@(new SelectList(Model.monedas, "id", "moneda"))">
             <option value="0">--Seleccion Una--</option>
         </select><br>
          <span asp-validation-for="monedaId" class="text-danger"></span>
@@ -48,7 +48,12 @@
          <span asp-validation-for="comentario" class="text-danger"></span>
     </div>
     <input type="hidden" asp-for="id"/>
-    <input type="submit" value="Guardar" class="btn btn-primary" />
+    <input type="hidden" asp-for="consecutivo"/>
+ 
+    <button type="submit" Guardar" class="btn btn-primary">
+        <i class="fa-regular fa-floppy-disk"></i>
+        </button>
+   
 </form>
 </div>
 

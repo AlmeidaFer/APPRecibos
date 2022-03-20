@@ -35,6 +35,13 @@
                                     <span asp-validation-for="pass" class="text-danger"></span>
                                 </div>
 
+                                @if(TempData["msj"]!=null){
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        @TempData["msj"]
+                                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                }
+
 
                                 <div class="form-group">
                                     <input type="submit" class="form-control btn-primary" value="Iniciar" />

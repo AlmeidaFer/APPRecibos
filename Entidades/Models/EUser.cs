@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Entidades.Models
 {
-    public class EUser 
+    public class EUser : IEUser
     {
         public int? id { get; set; }
-        [Required(ErrorMessage ="Ingrese un correo")]
-        [EmailAddress(ErrorMessage ="Verifique su correo")]
+        [Required(ErrorMessage = "Ingrese un correo")]
+        [EmailAddress(ErrorMessage = "Verifique su correo")]
         public string email { get; set; }
         [DataType(DataType.Password)]
-        [Required(ErrorMessage ="Ingrese una contrasñe")]
+        [Required(ErrorMessage = "Ingrese una contraseña")]
         public string pass { get; set; }
         public string? name { get; set; }
 
