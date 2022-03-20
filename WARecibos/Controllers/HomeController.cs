@@ -1,4 +1,5 @@
-﻿using Entidades.Data;
+﻿using ClosedXML.Excel;
+using Entidades.Data;
 using Entidades.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -46,26 +47,10 @@ namespace WARecibos.Controllers
             {
                 return RedirectToAction("LogIn", "User");
             }
-            var list = new List<MdlItemRecibo>();
-            using (var httpClt = new HttpClient())
-            {
-                var result = await httpClt.GetStringAsync(ApiUrl);
 
-                list = JsonConvert.DeserializeObject<List<MdlItemRecibo>>(result);
-            }
+            var data = Gen.getDataPrincipal(ApiUrl,ApiUrlP,ApiUrlM);
 
-            var data = Gen.getMonedasProveedores(new MdlRecibos(), ApiUrlP, ApiUrlM);
-            var model = data.Result;
-
-            foreach (var l in list)
-            {
-                var prov = model.proveedores.Where(x => x.id == l.proveedorId).FirstOrDefault();
-                l.proveedor = prov.proveedor;
-                var mon = model.monedas.Where(x => x.id == l.monedaId).FirstOrDefault();
-                l.moneda = mon.clave;
-            }
-
-
+            var list = data.Result;
 
             return View(list);
         }
@@ -189,6 +174,77 @@ namespace WARecibos.Controllers
             }
         }
         #endregion
+
+        public async Task<IActionResult> DownloadExcel()
+        {
+            var data = Gen.getDataPrincipal(ApiUrl, ApiUrlP, ApiUrlM);
+
+            using (var file = new XLWorkbook())
+            {
+                var libro = file.AddWorksheet("Recibos");
+                int r = 1,c =1;
+
+                libro.Cell(r, c).Value = "Consecutivo";
+                libro.Cell(r,c).Style.Fill.BackgroundColor = XLColor.FromHtml("#142566");
+                libro.Cell(r, c).Style.Font.FontColor = XLColor.White;
+                c++;
+                libro.Cell(r, c).Value = "Proveedor";
+                libro.Cell(r, c).Style.Fill.BackgroundColor = XLColor.FromHtml("#142566");
+                libro.Cell(r, c).Style.Font.FontColor = XLColor.White;
+                c++;
+                libro.Cell(r, c).Value = "Monto";
+                libro.Cell(r, c).Style.Fill.BackgroundColor = XLColor.FromHtml("#142566");
+                libro.Cell(r, c).Style.Font.FontColor = XLColor.White;
+                c++;
+                libro.Cell(r, c).Value = "Moneda";
+                libro.Cell(r, c).Style.Fill.BackgroundColor = XLColor.FromHtml("#142566");
+                libro.Cell(r, c).Style.Font.FontColor = XLColor.White;
+                c++;
+                libro.Cell(r, c).Value = "Fecha";
+                libro.Cell(r, c).Style.Fill.BackgroundColor = XLColor.FromHtml("#142566");
+                libro.Cell(r, c).Style.Font.FontColor = XLColor.White;
+                c++;
+                libro.Cell(r, c).Value = "Comentarios";
+                libro.Cell(r, c).Style.Fill.BackgroundColor = XLColor.FromHtml("#142566");
+                libro.Cell(r, c).Style.Font.FontColor = XLColor.White;
+                c =1;
+                r++;
+
+                foreach (var d in data.Result)
+                {
+                    libro.Cell(r, c).Value = "RC-" + d.consecutivo.ToString().PadLeft(5, '0');
+                    c++;
+                    libro.Cell(r, c).Value = d.proveedor;
+                    c++;
+                    libro.Cell(r, c).Value = d.monto;
+                    libro.Cell(r, c).Style.NumberFormat.Format = "_-* #,##0.00_-;-* #,##0.00_-;_-* \" - \"??_-;_-@_-"; 
+                    c++;
+                    libro.Cell(r, c).Value = d.moneda;
+                    c++;
+                    libro.Cell(r, c).Value = Convert.ToDateTime(d.fecha).ToShortDateString();
+                    c++;
+                    libro.Cell(r, c).Value = d.comentario;
+                    c = 1;
+                    r++;
+                }
+
+                libro.Column(1).Width = 15;
+                libro.Column(2).Width = 25;
+                libro.Column(3).Width = 15;
+                libro.Column(4).Width = 15;
+                libro.Column(5).Width = 20;
+                libro.Column(6).Width = 30;
+
+                using (var stream = new MemoryStream())
+                {
+                    file.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheettml.sheet", "recibos.xlsx");
+                }
+            }
+          
+               
+        }
 
         #endregion
     }
